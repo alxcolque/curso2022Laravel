@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <button>Nuevo curso</button>
+                    <a href="{{route('courses.create')}}">Crear Nuevo</a>
 
                     <table class="table">
                         <thead>
@@ -26,29 +26,25 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <button type="button">Mostrar</button>
-                                <button type="button">Editar</button>
-                                <button type="button">Eliminar</button>
+                        @foreach ($courses as $row)
+                            <tr>
+                                <th scope="row">{{$row->id}}</th>
+                                <td>{{$row->description}}</td>
+                                <td>{{$row->modality}}</td>
+                                <td>{{$row->begin_date.' '.$row->end_date}}</td>
+                                <td>
+                                    <a href="{{route('courses.show', $row->id)}}">Mostrar</a>
+                                    <a href="{{route('courses.edit', $row->id)}}">Editar</a>
+                                    <form action="{{ route('courses.destroy',$row->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm('¿Desea eliminar?');">Eliminar</button>
+                                    </form>
 
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
+
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                       </table>
                 </div>

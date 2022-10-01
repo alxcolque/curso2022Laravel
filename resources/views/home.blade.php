@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="">Ir a los cursos</a>
+                    <a href="{{route('courses.index')}}">Ir a los cursos</a>
                 </div>
             </div>
         </div>
