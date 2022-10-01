@@ -13,11 +13,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    <a href="">Ir a los cursos</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
