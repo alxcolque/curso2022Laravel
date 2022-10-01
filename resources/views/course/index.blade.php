@@ -21,6 +21,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Titulo</th>
                             <th scope="col">Descripcion</th>
+                            <th scope="col">Modalidad</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Acciones</th>
                           </tr>
@@ -29,6 +30,7 @@
                         @foreach ($courses as $row)
                             <tr>
                                 <th scope="row">{{$row->id}}</th>
+                                <td>{{$row->title}}</td>
                                 <td>{{$row->description}}</td>
                                 <td>{{$row->modality}}</td>
                                 <td>{{$row->begin_date.' '.$row->end_date}}</td>
